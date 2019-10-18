@@ -14,7 +14,6 @@ import com.google.android.flexbox.FlexboxLayoutManager;
 import com.google.android.flexbox.JustifyContent;
 
 import java.io.File;
-import java.util.Arrays;
 import java.util.Stack;
 
 import in.mrasif.lib.filemanager.adapters.FileViewAdapter;
@@ -23,7 +22,8 @@ import in.mrasif.lib.filemanager.listeners.FileActionListener;
 public class FilePickerActivity extends AppCompatActivity implements FileActionListener {
 
     private static final String TAG = "FilePickerActivity";
-    public static final String FILE_URL="data";
+    public static final String FILE_URL="path";
+    public static final String FILE_EXTENSION="extension";
 
     private RecyclerView rvView;
     private FileViewAdapter adapter;
@@ -65,9 +65,10 @@ public class FilePickerActivity extends AppCompatActivity implements FileActionL
     }
 
     @Override
-    public void onSelectFile(File file) {
+    public void onSelectFile(File file, String extension) {
         Intent intent=getIntent();
         intent.putExtra(FILE_URL,file.getAbsolutePath());
+        intent.putExtra(FILE_EXTENSION,extension);
         setResult(RESULT_OK,intent);
         finish();
     }

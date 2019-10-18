@@ -82,7 +82,7 @@ public class FileViewAdapter extends RecyclerView.Adapter<FileViewAdapter.ViewHo
         holder.tvTitle.setText(file.getName());
         holder.llItem.setOnClickListener(v -> {
             if (isFile){
-                listener.onSelectFile(file);
+                listener.onSelectFile(file, extension);
             }
             else {
                 listener.onSelectDir(file);
