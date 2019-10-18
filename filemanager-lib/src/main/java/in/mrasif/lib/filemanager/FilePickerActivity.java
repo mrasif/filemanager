@@ -8,6 +8,9 @@ import android.os.Environment;
 import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.google.android.flexbox.FlexDirection;
 import com.google.android.flexbox.FlexboxLayoutManager;
@@ -27,6 +30,7 @@ public class FilePickerActivity extends AppCompatActivity implements FileActionL
 
     private RecyclerView rvView;
     private FileViewAdapter adapter;
+    private TextView tvNoContent;
     private Stack<File> fileStack=new Stack<>();
 
     @Override
@@ -41,6 +45,7 @@ public class FilePickerActivity extends AppCompatActivity implements FileActionL
 
     private void setUI() {
         rvView = findViewById(R.id.rvViews);
+        tvNoContent = findViewById(R.id.tvNoContent);
     }
 
     private void init() {
@@ -62,6 +67,12 @@ public class FilePickerActivity extends AppCompatActivity implements FileActionL
         System.out.println("========================================");
         File[] files = dir.listFiles();
         adapter.update(files);
+        if (adapter.getItemCount()<1){
+            tvNoContent.setVisibility(View.VISIBLE);
+        }
+        else {
+            tvNoContent.setVisibility(View.GONE);
+        }
     }
 
     @Override
