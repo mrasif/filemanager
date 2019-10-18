@@ -8,9 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.QuickContactBadge;
 import android.widget.TextView;
-import android.widget.Toast;
 
 
 import com.bumptech.glide.Glide;
@@ -22,7 +20,6 @@ import java.util.List;
 
 import in.mrasif.lib.filemanager.R;
 import in.mrasif.lib.filemanager.listeners.FileActionListener;
-import in.mrasif.lib.filemanager.utils.MyGlide;
 
 public class FileViewAdapter extends RecyclerView.Adapter<FileViewAdapter.ViewHolder> {
 
